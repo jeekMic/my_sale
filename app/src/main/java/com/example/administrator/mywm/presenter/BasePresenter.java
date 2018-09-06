@@ -32,6 +32,7 @@ public abstract  class BasePresenter {
          */
         responseInfoAPI = retrofit.create(ResponseInfoAPI.class);
 
+
     }
     class CallBackAdapter implements Callback<ResponseInfo>{
 

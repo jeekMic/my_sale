@@ -43,7 +43,8 @@ public class HomeFragment extends Fragment {
         HomeRecyceViewAdapter homeRecyceViewAdapter = new HomeRecyceViewAdapter();
         rvHome.setAdapter(homeRecyceViewAdapter);
         rvHome.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
-        HomePresenter homePresenter = new HomePresenter();
+        //网络请求
+        HomePresenter homePresenter = new HomePresenter(homeRecyceViewAdapter);
         homePresenter.getHomeData("","");
         super.onViewCreated(view, savedInstanceState);
     }
