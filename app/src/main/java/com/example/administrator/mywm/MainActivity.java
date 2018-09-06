@@ -17,6 +17,8 @@ import com.example.administrator.mywm.utils.LG;
 
 import java.util.ArrayList;
 
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ArrayList<Fragment> fragmentList;
     private LinearLayout mainBottomeSwitcherContainer;
@@ -25,9 +27,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
         initView();//初始化view
         init();//
         setListener();//设置监听
+        View view = mainBottomeSwitcherContainer.getChildAt(0);
+        onClick(view);
     }
 
     private void initView() {
@@ -66,7 +71,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //根据选中索引,切换fragment
         changeFragment(index);
 
-
     }
 
     private void changeUI(int index) {
@@ -101,6 +105,6 @@ private void setEnable(View layout,Boolean isEnable){
      * 切换fragment
      */
     private void changeFragment(int index) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_bottome_switcher_container, fragmentList.get(index)).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment_container, fragmentList.get(index)).commit();
     }
 }

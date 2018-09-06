@@ -23,7 +23,7 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="33dp"
                 android:src="@drawable/home" />
             <TextView
                 android:layout_width="match_parent"
@@ -32,7 +32,6 @@
                 android:gravity="center"
                 android:text="首页"
                 android:textColor="@color/main_bottom_tv_color" />
-
         </FrameLayout>
         <FrameLayout
             android:layout_width="0dp"
