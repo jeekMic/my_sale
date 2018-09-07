@@ -26,9 +26,8 @@ public class HomePresenter extends BasePresenter {
         Gson gson = new Gson();
         HomeInfo homeInfo = gson.fromJson(json, HomeInfo.class);
         LG.I(json);
-//        adapter.setData(homeInfo);
-//        homeInfo.getHead(); 顶部轮播图需要用到的数据
-//          homeInfo.getBody();列表需要用到的数据
+        adapter.setData(homeInfo);
+
     }
     //触发网络请求
     public void getHomeData(String lat,String lon){

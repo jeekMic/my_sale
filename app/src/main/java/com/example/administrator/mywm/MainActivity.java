@@ -1,6 +1,7 @@
 package com.example.administrator.mywm;
 
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import com.example.administrator.mywm.activity.BaseActivity;
 import com.example.administrator.mywm.fragment.HomeFragment;
 import com.example.administrator.mywm.fragment.MoreFragment;
 import com.example.administrator.mywm.fragment.OrderFragment;
@@ -19,7 +21,7 @@ import java.util.ArrayList;
 
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
     private ArrayList<Fragment> fragmentList;
     private LinearLayout mainBottomeSwitcherContainer;
 
