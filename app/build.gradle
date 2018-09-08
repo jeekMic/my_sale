@@ -3,7 +3,7 @@ android {
     compileSdkVersion 25
     defaultConfig {
         applicationId "com.example.administrator.mywm"
-        minSdkVersion 15
+        minSdkVersion 17
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -30,10 +30,13 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     implementation 'com.squareup.retrofit2:retrofit:2.2.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.2.0'
-    compile 'com.squareup.picasso:picasso:2.3.2'    // picasso异步加载图片
-    compile 'com.nineoldandroids:library:2.4.0'
-    compile 'com.daimajia.slider:library:1.1.5@aar' //包含轮播图自动轮训的自定义控件
+    implementation 'com.squareup.picasso:picasso:2.3.2'    // picasso异步加载图片
+    implementation 'com.nineoldandroids:library:2.4.0'
+    implementation 'com.daimajia.slider:library:1.1.5@aar' //包含轮播图自动轮训的自定义控件
 
     //包含轮播图自动轮训的自定义控件
     implementation 'com.android.support:recyclerview-v7:25.4.0'
+    implementation 'com.flipboard:bottomsheet-commons:1.5.1'
+    implementation 'com.flipboard:bottomsheet-core:1.5.1'
+
 }

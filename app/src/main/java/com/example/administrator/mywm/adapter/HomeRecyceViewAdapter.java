@@ -1,6 +1,7 @@
 package com.example.administrator.mywm.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -9,12 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.example.administrator.mywm.R;
+import com.example.administrator.mywm.activity.BusinessActivity;
 import com.example.administrator.mywm.presenter.net.bean.HomeInfo;
 import com.example.administrator.mywm.presenter.net.bean.Promotion;
 import com.example.administrator.mywm.utils.Contant;
@@ -48,6 +51,7 @@ public class HomeRecyceViewAdapter extends RecyclerView.Adapter {
             //商家条目
             View view = View.inflate(context, R.layout.item_seller, null);
             SellerViewHolder sellerViewHolder = new SellerViewHolder(view);
+
             return sellerViewHolder;
         } else {
             //分割线条目
@@ -66,6 +70,7 @@ public class HomeRecyceViewAdapter extends RecyclerView.Adapter {
         } else if (data.getBody().get(position-1).type == 0) {
             //一般条目
             setSellerData(holder,position-1);
+            ((SellerViewHolder)holder).setPosition(position);
         } else {
             //推荐条目
             setRecommendData(holder,position-1);
@@ -160,10 +165,23 @@ public class HomeRecyceViewAdapter extends RecyclerView.Adapter {
          TextView tvTitle;
          @BindView(R.id.ratingBar)
          RatingBar ratingBar;
-
+         public int position ;
+         public  void  setPosition(int position){
+             this.position = position;
+         }
          public SellerViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //每一个item的点击事件
+                    Intent intent = new Intent(context, BusinessActivity.class);
+                    //需要传递的对象所在的类，需要实现序列化的接口
+                    intent.putExtra("seller",data.getBody().get(position).seller);
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 
